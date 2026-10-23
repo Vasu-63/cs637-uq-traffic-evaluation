@@ -42,7 +42,7 @@ import numpy as np
 import torch
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from p3_model_utils import load_variant, set_batch_size   # noqa: E402
+from checkpoint_utils import load_variant, set_batch_size   # noqa: E402
 
 HERE = os.getcwd()
 
