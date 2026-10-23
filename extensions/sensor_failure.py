@@ -44,7 +44,7 @@ import time
 import numpy as np
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from p3_model_utils import load_variant, predict          # noqa: E402
+from checkpoint_utils import load_variant, predict          # noqa: E402
 from coverage_conformal import interval_metrics            # noqa: E402
 
 HERE = os.getcwd()
@@ -64,9 +64,14 @@ def inject(x, failed, mode):
     return x
 
 
-def detect(x):
-    """Flag (N, S): all-zero or flat over the window in every channel."""
+def detect(x, rule="zero_or_flat"):
+    """Flag (N, S). rule "zero_or_flat": all-zero or flat over the window in
+    every channel (original rule). rule "zero": all-zero only, so a stuck
+    sensor keeps its own stale reading (first run showed that replacing it
+    by the neighbours' mean is worse than leaving it)."""
     allzero = np.all(x == 0, axis=(1, 3))
+    if rule == "zero":
+        return allzero
     flat = np.all(x.max(axis=1) == x.min(axis=1), axis=-1)
     return allzero | flat
 
@@ -135,9 +140,11 @@ def main(a):
         p = predict(model, xs, a.batch_size)
         return p * std + mean                             # (12, N, S, 3) mph
 
-    clean_flags = detect(x_raw)
+    clean_flags = detect(x_raw, a.detect)
     false_alarm = float(clean_flags.mean())
-    print(f"detector false-alarm rate on clean test inputs: {false_alarm:.4%}")
+    print(f"detector rule '{a.detect}': flags {false_alarm:.4%} of clean test "
+          f"sensor-windows (genuinely missing or flat readings)")
+    modes = [m.strip() for m in a.modes.split(",")]
 
     fractions = [float(f) for f in a.fractions.split(",")]
     rows = []
@@ -173,11 +180,11 @@ def main(a):
                 nbr = (W[failed].sum(0) > 0) & ~failed
                 groups = {"all": np.ones(S, bool), "failed": failed,
                           "healthy_neighbours": nbr, "healthy": ~failed}
-                for mode in ("dead", "stuck"):
+                for mode in modes:
                     xf = inject(x_raw, failed, mode)
-                    variants = [(False, xf)]
+                    variants = [] if a.fix_only else [(False, xf)]
                     if not a.no_fix:
-                        flags = detect(xf)
+                        flags = detect(xf, a.detect)
                         variants.append((True, impute(xf, flags, W, train_mean)))
                         recall = flags[:, failed].mean()
                     for fix, xin in variants:
@@ -203,6 +210,7 @@ def main(a):
     with open(os.path.join(a.out, "sensor_failure_meta.json"), "w") as f:
         json.dump({"dataset_dir": d, "test_samples": N, "sensors": S,
                    "fractions": fractions, "seeds": a.seeds, "alpha": ALPHA,
+                   "modes": modes, "detector_rule": a.detect, "fix_only": a.fix_only,
                    "detector_false_alarm_rate_clean": false_alarm,
                    "minutes": (time.time() - t_start) / 60}, f, indent=1)
     print("\nwrote", path)
@@ -262,6 +270,11 @@ if __name__ == "__main__":
     ap.add_argument("--batch_size", type=int, default=256)
     ap.add_argument("--max_samples", type=int, default=0, help="debug: first N test samples only")
     ap.add_argument("--no_fix", action="store_true")
+    ap.add_argument("--fix_only", action="store_true",
+                    help="skip the no-fix runs (they do not depend on the detector rule)")
+    ap.add_argument("--detect", choices=["zero_or_flat", "zero"], default="zero_or_flat",
+                    help="which sensor-windows the fix replaces")
+    ap.add_argument("--modes", default="dead,stuck", help="fault modes to run")
     ap.add_argument("--clean_only", action="store_true", help="only check the clean score")
     a = ap.parse_args()
     a.out = os.path.abspath(a.out)

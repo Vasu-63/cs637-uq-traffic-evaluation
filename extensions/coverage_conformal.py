@@ -23,7 +23,7 @@ What it does
 
 Input
 -----
-Person 1's prediction files (README in outputs/pemsd4/):
+the team's prediction files (README in outputs/pemsd4/), or make_predictions.py output:
     val_pred / test_pred   (12, N, S, 3)  lower / median / upper, mph
     val_truth / test_truth (12, N, S)     mph
 Zeros in the truth are missing readings and are masked, as in the authors' code.
@@ -220,8 +220,15 @@ def aci(val, test, alpha, gamma=0.005):
 def evaluate_model(name, data, alpha, gamma):
     vp, vy = data["val"]
     tp, ty = data["test"]
-    vy = np.where(vy == 0, np.nan, vy)
-    ty = np.where(ty == 0, np.nan, ty)
+    # Missing readings are 0 in the data, but after the authors' scaler round
+    # trip in evaluate() they come back as tiny residues, not exact zeros.
+    # Treat |v| < 1e-3 mph as missing.
+    for split, arr in (("val", vy), ("test", ty)):
+        near = (np.abs(arr) < 1e-3) & (arr != 0)
+        print(f"  [{name}/{split}] missing readings: {np.mean(np.abs(arr) < 1e-3):.2%} "
+              f"(of which float residues, not exact 0: {near.mean():.2%})")
+    vy = np.where(np.abs(vy) < 1e-3, np.nan, vy)
+    ty = np.where(np.abs(ty) < 1e-3, np.nan, ty)
     val, test = (vp, vy), (tp, ty)
     med = tp[..., 1]
 
