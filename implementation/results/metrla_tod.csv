@@ -1,0 +1,25 @@
+label,split,epoch,law,reg_lambda,view,minutes,mae,mse,rmse,mis_authors,mis_std,width,coverage,crossed,variant,seed
+metrla_gpde_quantile,test,23,underwood,,step,15,2.9125,32.405,5.6925,32.9855,30.073,11.175,0.9041,0.0002,without physics,0
+metrla_gpde_quantile,test,23,underwood,,avg,15,2.6491,24.9048,4.9905,26.4732,23.8241,12.1471,0.9285,0.0001,without physics,0
+metrla_gpde_quantile,test,23,underwood,,step,30,3.4576,49.917,7.0652,51.2503,47.7927,10.142,0.8557,0.0003,without physics,0
+metrla_gpde_quantile,test,23,underwood,,avg,30,2.9677,34.6138,5.8833,35.8844,32.9167,11.2901,0.8995,0.0002,without physics,0
+metrla_gpde_quantile,test,23,underwood,,step,60,4.3254,79.6988,8.9274,83.0419,78.7165,9.1952,0.7892,0.0006,without physics,0
+metrla_gpde_quantile,test,23,underwood,,avg,60,3.4721,51.1247,7.1502,53.0475,49.5754,10.4092,0.8572,0.0003,without physics,0
+metrla_gpde_quantile_phy,test,21,underwood,0.0005,step,15,2.9266,31.7217,5.6322,32.4895,29.5629,11.2188,0.8966,0.0,with physics,0
+metrla_gpde_quantile_phy,test,21,underwood,0.0005,avg,15,2.6612,24.4695,4.9467,26.2182,23.557,12.0646,0.9216,0.0,with physics,0
+metrla_gpde_quantile_phy,test,21,underwood,0.0005,step,30,3.4766,48.3835,6.9558,49.4279,45.9513,10.4053,0.8457,0.0001,with physics,0
+metrla_gpde_quantile_phy,test,21,underwood,0.0005,avg,30,2.9828,33.7707,5.8113,35.0906,32.1077,11.3475,0.8915,0.0,with physics,0
+metrla_gpde_quantile_phy,test,21,underwood,0.0005,step,60,4.3256,76.4679,8.7446,79.0681,74.7425,9.4761,0.7737,0.0002,with physics,0
+metrla_gpde_quantile_phy,test,21,underwood,0.0005,avg,60,3.4848,49.4217,7.0301,51.0183,47.5336,10.5935,0.8469,0.0001,with physics,0
+metrla_gpde_quantile_seed1,test,21,underwood,,step,15,2.936,32.848,5.7313,34.124,31.188,11.0646,0.8976,0.0,without physics,1
+metrla_gpde_quantile_seed1,test,21,underwood,,avg,15,2.6671,25.2983,5.0297,27.1343,24.4672,12.0663,0.9241,0.0,without physics,1
+metrla_gpde_quantile_seed1,test,21,underwood,,step,30,3.5009,50.3995,7.0993,53.2846,49.7837,10.0949,0.8423,0.0,without physics,1
+metrla_gpde_quantile_seed1,test,21,underwood,,avg,30,2.9946,35.0312,5.9187,37.0969,34.1023,11.2148,0.8917,0.0,without physics,1
+metrla_gpde_quantile_seed1,test,21,underwood,,step,60,4.4274,81.5492,9.0305,86.4889,82.0615,9.2665,0.7672,0.0003,without physics,1
+metrla_gpde_quantile_seed1,test,21,underwood,,avg,60,3.5234,51.906,7.2046,55.0977,51.5743,10.3796,0.8439,0.0001,without physics,1
+metrla_gpde_quantile_phy_seed1,test,24,underwood,0.0005,step,15,2.9368,32.8778,5.7339,33.7624,30.8256,10.9162,0.8926,0.0002,with physics,1
+metrla_gpde_quantile_phy_seed1,test,24,underwood,0.0005,avg,15,2.6665,25.2272,5.0227,26.8351,24.1687,11.9739,0.9207,0.0001,with physics,1
+metrla_gpde_quantile_phy_seed1,test,24,underwood,0.0005,step,30,3.5146,50.8056,7.1278,53.5832,50.0686,9.8002,0.8347,0.0005,with physics,1
+metrla_gpde_quantile_phy_seed1,test,24,underwood,0.0005,avg,30,2.9993,35.1475,5.9285,36.9859,33.9866,11.042,0.8865,0.0002,with physics,1
+metrla_gpde_quantile_phy_seed1,test,24,underwood,0.0005,step,60,4.4483,81.8783,9.0487,87.7505,83.3022,8.8619,0.7609,0.0007,with physics,1
+metrla_gpde_quantile_phy_seed1,test,24,underwood,0.0005,avg,60,3.5355,52.1774,7.2234,55.4684,51.9329,10.1122,0.8377,0.0004,with physics,1

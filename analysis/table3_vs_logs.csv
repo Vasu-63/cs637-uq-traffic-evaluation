@@ -1,0 +1,27 @@
+attack,dataset,model,table_mae,table_mis,table_mse,log_file,log_epoch,log_attack_tag,log_mae,log_mis,log_mse
+PGD,METR-LA,Quantile,4.084,67.483,64.411,quantile_model_PGD/data/model/dcrnn_DR_2_h_12_16-16_lr_0.01_bs_256_0923032216/info.log,15,"PGD eps=0.03, steps=2",4.0838,67.4833,64.4115
+PGD,METR-LA,GPDE+Quantile,4.069,65.815,61.453,gpde_quantile_model_PGD/data/model/dcrnn_DR_2_h_12_16-16_lr_0.01_bs_256_0923140740/info.log,16,"PGD eps=0.03, steps=2",4.0691,65.8151,61.4537
+PGD,METR-LA,GPDE+Quantile+Phy,3.898,61.998,59.531,gpde_quantile_phy_model_PGD_train/data/model/dcrnn_DR_2_h_12_16-16_lr_0.01_bs_256_0826020102/info.log,19,"PGD eps=0.03, steps=2, alpha=0.015000, rand=True",3.8979,61.9984,59.5311
+PGD,PEMSD8,Quantile,2.447,53.912,23.928,quantile_model_PEMSD8_PGD/data/model/dcrnn_DR_2_h_12_16-16_lr_0.01_bs_256_0912221231/info.log,18,"PGD eps=0.03, steps=2",2.4475,53.9122,23.9285
+PGD,PEMSD8,GPDE+Quantile,1.795,33.123,15.34,gpde_quantile_model_PEMSD8_PGD/data/model/dcrnn_DR_2_h_12_16-16_lr_0.01_bs_256_0913121058/info.log,18,"PGD eps=0.03, steps=2",1.7951,33.1229,15.3396
+PGD,PEMSD8,GPDE+Quantile+Phy,1.693,32.51,13.783,gpde_quantile_phy_model_PEMSD8_PGD_train/data/model/dcrnn_DR_2_h_12_16-16_lr_0.01_bs_256_0823213304/info.log,18,"PGD eps=0.03, steps=2, alpha=0.015000, rand=True",1.693,32.509,13.7829
+PGD,PEMSD4,Quantile,2.889,62.04,35.323,quantile_model_PEMSD4_PGD/data/model/dcrnn_DR_2_h_12_16-16_lr_0.01_bs_256_0908214806/info.log,16,"PGD eps=0.03, steps=2",2.8888,62.0403,35.3235
+PGD,PEMSD4,GPDE+Quantile,2.176,42.22,21.203,gpde_quantile_model_PEMSD4_PGD/data/model/dcrnn_DR_2_h_12_16-16_lr_0.01_bs_256_0909141259/info.log,19,"PGD eps=0.03, steps=2",2.1759,42.2201,21.2026
+PGD,PEMSD4,GPDE+Quantile+Phy,2.377,46.822,23.785,NO MATCHING LOG LINE,,,,,
+FGSM,METR-LA,Quantile,4.055,65.613,62.532,quantile_model_FGSM_train/data/model/dcrnn_DR_2_h_12_16-16_lr_0.01_bs_256_0921170413/info.log,14,"",4.0558,65.6132,62.5317
+FGSM,METR-LA,Quantile,4.055,65.613,62.532,quantile_model_PGD/data/model/dcrnn_DR_2_h_12_16-16_lr_0.01_bs_256_0921170413/info.log,14,"",4.0558,65.6132,62.5317
+FGSM,METR-LA,GPDE+Quantile,3.992,62.665,61.237,gpde_quantile_model_FGSM_train/data/model/dcrnn_DR_2_h_12_16-16_lr_0.01_bs_256_0921231722/info.log,17,"",3.9924,62.6651,61.237
+FGSM,METR-LA,GPDE+Quantile,3.992,62.665,61.237,gpde_quantile_model_PGD/data/model/dcrnn_DR_2_h_12_16-16_lr_0.01_bs_256_0921231722/info.log,17,"",3.9924,62.6651,61.237
+FGSM,METR-LA,GPDE+Quantile+Phy,3.972,62.937,62.368,gpde_quantile_phy_model_FGSM_train/data/model/dcrnn_DR_2_h_12_16-16_lr_0.01_bs_256_0820203335/info.log,19,"",3.9728,62.9369,62.3679
+FGSM,METR-LA,GPDE+Quantile+Phy,3.972,62.937,62.368,gpde_quantile_phy_model_PGD_train/data/model/dcrnn_DR_2_h_12_16-16_lr_0.01_bs_256_0820203335/info.log,19,"",3.9728,62.9369,62.3679
+FGSM,PEMSD8,Quantile,2.072,43.617,18.083,quantile_model_PEMSD8_FGSM_train/data/model/dcrnn_DR_2_h_12_16-16_lr_0.01_bs_256_0911131403/info.log,19,"",2.0727,43.6173,18.0831
+FGSM,PEMSD8,Quantile,2.072,43.617,18.083,quantile_model_PEMSD8_PGD/data/model/dcrnn_DR_2_h_12_16-16_lr_0.01_bs_256_0911131403/info.log,19,"",2.0727,43.6173,18.0831
+FGSM,PEMSD8,GPDE+Quantile,2.031,41.761,17.929,gpde_quantile_model_PEMSD8_FGSM_train/data/model/dcrnn_DR_2_h_12_16-16_lr_0.01_bs_256_0911185620/info.log,18,"",2.0313,41.7608,17.9298
+FGSM,PEMSD8,GPDE+Quantile,2.031,41.761,17.929,gpde_quantile_model_PEMSD8_PGD/data/model/dcrnn_DR_2_h_12_16-16_lr_0.01_bs_256_0911185620/info.log,18,"",2.0313,41.7608,17.9298
+FGSM,PEMSD8,GPDE+Quantile+Phy,2.046,43.158,17.578,gpde_quantile_phy_model_PEMSD8_FGSM_train/data/model/dcrnn_DR_2_h_12_16-16_lr_0.01_bs_256_0819152501/info.log,18,"",2.0456,43.158,17.5783
+FGSM,PEMSD8,GPDE+Quantile+Phy,2.046,43.158,17.578,gpde_quantile_phy_model_PEMSD8_PGD_train/data/model/dcrnn_DR_2_h_12_16-16_lr_0.01_bs_256_0819152501/info.log,18,"",2.0456,43.158,17.5783
+FGSM,PEMSD4,Quantile,3.153,68.328,38.514,quantile_model_PEMSD4_FGSM_train/data/model/dcrnn_DR_2_h_12_16-16_lr_0.01_bs_256_0906190647/info.log,15,"",3.1538,68.3289,38.5141
+FGSM,PEMSD4,Quantile,3.153,68.328,38.514,quantile_model_PEMSD4_PGD/data/model/dcrnn_DR_2_h_12_16-16_lr_0.01_bs_256_0906190647/info.log,15,"",3.1538,68.3289,38.5141
+FGSM,PEMSD4,GPDE+Quantile,2.068,43.469,19.99,gpde_quantile_model_PEMSD4_FGSM_train/data/model/dcrnn_DR_2_h_12_16-16_lr_0.01_bs_256_0907003228/info.log,19,"",2.0684,43.4688,19.9906
+FGSM,PEMSD4,GPDE+Quantile,2.068,43.469,19.99,gpde_quantile_model_PEMSD4_PGD/data/model/dcrnn_DR_2_h_12_16-16_lr_0.01_bs_256_0907003228/info.log,19,"",2.0684,43.4688,19.9906
+FGSM,PEMSD4,GPDE+Quantile+Phy,2.347,45.972,22.641,NO MATCHING LOG LINE,,,,,
