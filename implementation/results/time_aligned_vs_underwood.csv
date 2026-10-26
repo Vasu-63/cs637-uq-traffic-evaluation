@@ -1,0 +1,37 @@
+label,split,epoch,law,reg_lambda,view,minutes,mae,mse,rmse,mis_authors,mis_std,width,coverage,crossed,variant,seed
+pemsd8_underwood_ours,test,30,underwood,0.002,step,15,1.2338,7.0012,2.646,17.1361,15.9022,3.5208,0.81,0.0005,Underwood (authors),0
+pemsd8_underwood_ours,test,30,underwood,0.002,avg,15,1.0512,4.7829,2.187,12.2468,11.1956,4.0378,0.8853,0.0002,Underwood (authors),0
+pemsd8_underwood_ours,test,30,underwood,0.002,step,30,1.5604,12.4584,3.5296,29.4045,27.8441,3.0718,0.6807,0.0015,Underwood (authors),0
+pemsd8_underwood_ours,test,30,underwood,0.002,avg,30,1.2567,7.7679,2.7871,18.8978,17.6411,3.6172,0.8013,0.0007,Underwood (authors),0
+pemsd8_underwood_ours,test,30,underwood,0.002,step,60,2.023,20.8518,4.5664,49.5027,47.4797,2.5524,0.5197,0.0019,Underwood (authors),0
+pemsd8_underwood_ours,test,30,underwood,0.002,avg,60,1.5473,12.6341,3.5544,30.1017,28.5544,3.1837,0.6918,0.0013,Underwood (authors),0
+pemsd8_underwood_ours_seed2,test,46,underwood,0.002,step,15,1.2457,7.0653,2.6581,17.2408,15.995,3.5445,0.8159,0.0,Underwood (authors),2
+pemsd8_underwood_ours_seed2,test,46,underwood,0.002,avg,15,1.0509,4.8377,2.1995,12.4008,11.35,4.0037,0.8842,0.0,Underwood (authors),2
+pemsd8_underwood_ours_seed2,test,46,underwood,0.002,step,30,1.5698,12.5869,3.5478,28.9848,27.415,3.1444,0.7073,0.0001,Underwood (authors),2
+pemsd8_underwood_ours_seed2,test,46,underwood,0.002,avg,30,1.2624,7.847,2.8012,18.8755,17.6132,3.6277,0.8111,0.0,Underwood (authors),2
+pemsd8_underwood_ours_seed2,test,46,underwood,0.002,step,60,1.9916,21.0313,4.586,45.4688,43.4772,2.8503,0.6031,0.0002,Underwood (authors),2
+pemsd8_underwood_ours_seed2,test,46,underwood,0.002,avg,60,1.5447,12.7673,3.5731,28.9723,27.4276,3.2856,0.7254,0.0001,Underwood (authors),2
+pemsd8_underwood_ours_seed1,test,48,underwood,0.002,step,15,1.2683,7.2435,2.6914,18.2084,16.9402,3.432,0.8031,0.0,Underwood (authors),1
+pemsd8_underwood_ours_seed1,test,48,underwood,0.002,avg,15,1.0768,5.0545,2.2482,13.0966,12.0198,3.938,0.8758,0.0,Underwood (authors),1
+pemsd8_underwood_ours_seed1,test,48,underwood,0.002,step,30,1.5922,12.6278,3.5536,29.0875,27.4952,3.1999,0.7163,0.0,Underwood (authors),1
+pemsd8_underwood_ours_seed1,test,48,underwood,0.002,avg,30,1.2861,7.9931,2.8272,19.4072,18.121,3.5997,0.8081,0.0,Underwood (authors),1
+pemsd8_underwood_ours_seed1,test,48,underwood,0.002,step,60,2.0363,20.9381,4.5758,45.4262,43.39,2.9438,0.6061,0.0,Underwood (authors),1
+pemsd8_underwood_ours_seed1,test,48,underwood,0.002,avg,60,1.5733,12.8188,3.5803,29.1681,27.5948,3.3183,0.7286,0.0,Underwood (authors),1
+pemsd8_underwood_aligned,test,49,underwood,0.002,step,15,1.2149,6.7256,2.5934,16.3697,15.1548,3.5595,0.8149,0.0,Time-aligned,0
+pemsd8_underwood_aligned,test,49,underwood,0.002,avg,15,1.0256,4.5445,2.1318,11.7843,10.7587,3.9836,0.8831,0.0,Time-aligned,0
+pemsd8_underwood_aligned,test,49,underwood,0.002,step,30,1.5476,12.3091,3.5084,27.8138,26.2663,3.1961,0.7158,0.0,Time-aligned,0
+pemsd8_underwood_aligned,test,49,underwood,0.002,avg,30,1.2367,7.5474,2.7473,18.0054,16.7687,3.6398,0.8134,0.0,Time-aligned,0
+pemsd8_underwood_aligned,test,49,underwood,0.002,step,60,2.0033,20.8844,4.5699,45.7212,43.7179,2.7842,0.5885,0.0,Time-aligned,0
+pemsd8_underwood_aligned,test,49,underwood,0.002,avg,60,1.5301,12.5168,3.5379,28.2626,26.7325,3.291,0.7261,0.0,Time-aligned,0
+pemsd8_underwood_aligned_seed2,test,44,underwood,0.002,step,15,1.2616,7.0885,2.6624,16.7866,15.525,4.0806,0.841,0.0,Time-aligned,2
+pemsd8_underwood_aligned_seed2,test,44,underwood,0.002,avg,15,1.0727,4.8702,2.2069,12.3584,11.2858,4.5548,0.8963,0.0,Time-aligned,2
+pemsd8_underwood_aligned_seed2,test,44,underwood,0.002,step,30,1.5842,12.739,3.5692,27.303,25.7188,3.7431,0.7716,0.0,Time-aligned,2
+pemsd8_underwood_aligned_seed2,test,44,underwood,0.002,avg,30,1.2804,7.9146,2.8133,18.2128,16.9324,4.1933,0.8431,0.0,Time-aligned,2
+pemsd8_underwood_aligned_seed2,test,44,underwood,0.002,step,60,2.0294,21.5206,4.639,42.1918,40.1624,3.5523,0.704,0.0,Time-aligned,2
+pemsd8_underwood_aligned_seed2,test,44,underwood,0.002,avg,60,1.5666,12.9725,3.6017,27.2696,25.703,3.9001,0.7865,0.0,Time-aligned,2
+pemsd8_underwood_aligned_seed1,test,48,underwood,0.002,step,15,1.2384,6.9086,2.6284,17.6584,16.4201,3.3959,0.7952,0.0003,Time-aligned,1
+pemsd8_underwood_aligned_seed1,test,48,underwood,0.002,avg,15,1.0538,4.7741,2.185,12.728,11.6742,3.8273,0.8654,0.0002,Time-aligned,1
+pemsd8_underwood_aligned_seed1,test,48,underwood,0.002,step,30,1.5612,12.3832,3.519,28.7393,27.1781,3.1538,0.703,0.0001,Time-aligned,1
+pemsd8_underwood_aligned_seed1,test,48,underwood,0.002,avg,30,1.2591,7.7115,2.777,19.0402,17.7811,3.5189,0.7967,0.0002,Time-aligned,1
+pemsd8_underwood_aligned_seed1,test,48,underwood,0.002,step,60,2.0041,21.2144,4.6059,44.41,42.4059,3.0544,0.6204,0.0,Time-aligned,1
+pemsd8_underwood_aligned_seed1,test,48,underwood,0.002,avg,60,1.5438,12.6882,3.5621,28.6318,27.088,3.2988,0.7231,0.0001,Time-aligned,1

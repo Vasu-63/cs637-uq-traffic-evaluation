@@ -1,0 +1,5 @@
+METR-LA train, feature 1 (what the physics loss uses as "density"):
+  range 0.000 .. 0.997
+  identical across all 207 sensors at every time step: True
+  equals (minute of day)/1440, i.e. ((t + 0) mod 288)/288: True
+  correlation speed vs feature 1, median over sensors: 0.004

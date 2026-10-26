@@ -1,0 +1,289 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1792667914.454015   15741 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1792667916.561775   15741 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+Using device: cuda
+2026-10-22 11:18:38,328 - INFO - Log directory: data/model/dcrnn_DR_2_h_12_16-16_lr_0.01_bs_128_1022111838/
+/content/runs/pemsd8_greenshields_seed2/model/pytorch/dcrnn_cell.py:84: UserWarning: Sparse invariant checks are implicitly disabled. Memory errors (e.g. SEGFAULT) will occur when operating on a sparse tensor which violates the invariants, but checks incur performance overhead. To silence this warning, explicitly opt in or out. See `torch.sparse.check_sparse_tensor_invariants.__doc__` for guidance.  (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:760.)
+  L = torch.sparse_coo_tensor(indices.T,L.data, L.shape, device=device)
+2026-10-22 11:18:40,206 - INFO - Model created
+2026-10-22 11:18:41,477 - INFO - Start training ...
+2026-10-22 11:18:41,477 - INFO - num_batches:98
+/content/runs/pemsd8_greenshields_seed2/model/pytorch/dcrnn_model.py:279: UserWarning: The use of `x.T` on tensors of dimension other than 2 to reverse their shape is deprecated and it will throw an error in a future release. Consider `x.mT` to transpose batches of matrices or `x.permute(*torch.arange(x.ndim - 1, -1, -1))` to reverse the dimensions of a tensor. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4480.)
+  decoder_input = decoder_output.T[1].T
+epoch_num =  0
+2026-10-22 11:18:41,914 - INFO - Total trainable parameters 24931
+2026-10-22 11:19:32,448 - INFO - epoch complete
+2026-10-22 11:19:32,449 - INFO - evaluating now!
+2026-10-22 11:19:35,808 - INFO - Epoch [0/50] (98) val_mae:3.7211, val_mis: 77.8647, val_width: 6.1962, val_mse: 39.7225, val_rmse: 6.3026 , 
+2026-10-22 11:19:42,565 - INFO - Epoch [0/50] (98) test_mae:3.8228,test_mis: 81.5599, test_width: 6.1690, test_mse: 41.7110, test_rmse: 6.4584 , 
+2026-10-22 11:19:42,571 - INFO - Saved model at 0
+2026-10-22 11:19:42,571 - INFO - Val loss decrease from inf to 3.7211, saving to models/epo0.tar
+epoch_num =  1
+2026-10-22 11:20:32,185 - INFO - epoch complete
+2026-10-22 11:20:32,186 - INFO - evaluating now!
+2026-10-22 11:20:35,546 - INFO - Epoch [1/50] (196) val_mae:4.9397, val_mis: 112.8997, val_width: 5.9994, val_mse: 58.1403, val_rmse: 7.6250 , 
+2026-10-22 11:20:42,296 - INFO - Epoch [1/50] (196) test_mae:4.8943,test_mis: 111.7519, test_width: 5.9836, test_mse: 59.1787, test_rmse: 7.6928 , 
+epoch_num =  2
+2026-10-22 11:21:31,940 - INFO - epoch complete
+2026-10-22 11:21:31,941 - INFO - evaluating now!
+2026-10-22 11:21:35,283 - INFO - Epoch [2/50] (294) val_mae:3.0262, val_mis: 63.0241, val_width: 5.2475, val_mse: 30.6953, val_rmse: 5.5403 , 
+2026-10-22 11:21:41,994 - INFO - Epoch [2/50] (294) test_mae:3.0489,test_mis: 63.9214, test_width: 5.2397, test_mse: 31.4083, test_rmse: 5.6043 , 
+2026-10-22 11:21:41,997 - INFO - Saved model at 2
+2026-10-22 11:21:41,997 - INFO - Val loss decrease from 3.7211 to 3.0262, saving to models/epo2.tar
+epoch_num =  3
+2026-10-22 11:22:31,666 - INFO - epoch complete
+2026-10-22 11:22:31,666 - INFO - evaluating now!
+2026-10-22 11:22:35,046 - INFO - Epoch [3/50] (392) val_mae:3.5902, val_mis: 71.0410, val_width: 5.2617, val_mse: 32.5174, val_rmse: 5.7024 , 
+2026-10-22 11:22:41,746 - INFO - Epoch [3/50] (392) test_mae:3.5394,test_mis: 69.2902, test_width: 5.2809, test_mse: 32.2553, test_rmse: 5.6794 , 
+epoch_num =  4
+2026-10-22 11:23:31,453 - INFO - epoch complete
+2026-10-22 11:23:31,453 - INFO - evaluating now!
+2026-10-22 11:23:34,830 - INFO - Epoch [4/50] (490) val_mae:2.1968, val_mis: 36.3666, val_width: 5.1240, val_mse: 17.3587, val_rmse: 4.1664 , 
+2026-10-22 11:23:41,523 - INFO - Epoch [4/50] (490) test_mae:2.2097,test_mis: 36.5721, test_width: 5.1568, test_mse: 17.7526, test_rmse: 4.2134 , 
+2026-10-22 11:23:41,526 - INFO - Saved model at 4
+2026-10-22 11:23:41,526 - INFO - Val loss decrease from 3.0262 to 2.1968, saving to models/epo4.tar
+epoch_num =  5
+2026-10-22 11:24:31,074 - INFO - epoch complete
+2026-10-22 11:24:31,074 - INFO - evaluating now!
+2026-10-22 11:24:34,446 - INFO - Epoch [5/50] (588) val_mae:3.9145, val_mis: 78.6724, val_width: 5.3890, val_mse: 26.1945, val_rmse: 5.1181 , 
+2026-10-22 11:24:41,145 - INFO - Epoch [5/50] (588) test_mae:3.9607,test_mis: 80.2466, test_width: 5.3929, test_mse: 26.7209, test_rmse: 5.1692 , 
+epoch_num =  6
+2026-10-22 11:25:30,737 - INFO - epoch complete
+2026-10-22 11:25:30,737 - INFO - evaluating now!
+2026-10-22 11:25:34,092 - INFO - Epoch [6/50] (686) val_mae:3.4230, val_mis: 72.2419, val_width: 4.3086, val_mse: 27.5844, val_rmse: 5.2521 , 
+2026-10-22 11:25:40,786 - INFO - Epoch [6/50] (686) test_mae:3.3510,test_mis: 69.3284, test_width: 4.3553, test_mse: 26.9262, test_rmse: 5.1890 , 
+epoch_num =  7
+2026-10-22 11:26:30,398 - INFO - epoch complete
+2026-10-22 11:26:30,398 - INFO - evaluating now!
+2026-10-22 11:26:33,735 - INFO - Epoch [7/50] (784) val_mae:2.1968, val_mis: 40.4100, val_width: 4.2115, val_mse: 17.1578, val_rmse: 4.1422 , 
+2026-10-22 11:26:40,456 - INFO - Epoch [7/50] (784) test_mae:2.1956,test_mis: 39.9086, test_width: 4.2695, test_mse: 17.3262, test_rmse: 4.1625 , 
+2026-10-22 11:26:40,460 - INFO - Saved model at 7
+2026-10-22 11:26:40,460 - INFO - Val loss decrease from 2.1968 to 2.1968, saving to models/epo7.tar
+epoch_num =  8
+2026-10-22 11:27:30,157 - INFO - epoch complete
+2026-10-22 11:27:30,157 - INFO - evaluating now!
+2026-10-22 11:27:33,505 - INFO - Epoch [8/50] (882) val_mae:1.8494, val_mis: 32.4597, val_width: 4.1760, val_mse: 15.8868, val_rmse: 3.9858 , 
+2026-10-22 11:27:40,228 - INFO - Epoch [8/50] (882) test_mae:1.8359,test_mis: 31.6120, test_width: 4.2311, test_mse: 15.7666, test_rmse: 3.9707 , 
+2026-10-22 11:27:40,231 - INFO - Saved model at 8
+2026-10-22 11:27:40,232 - INFO - Val loss decrease from 2.1968 to 1.8494, saving to models/epo8.tar
+epoch_num =  9
+2026-10-22 11:28:30,305 - INFO - epoch complete
+2026-10-22 11:28:30,305 - INFO - evaluating now!
+2026-10-22 11:28:33,734 - INFO - Epoch [9/50] (980) val_mae:1.9503, val_mis: 35.6583, val_width: 3.9355, val_mse: 16.8021, val_rmse: 4.0990 , 
+2026-10-22 11:28:40,499 - INFO - Epoch [9/50] (980) test_mae:1.9377,test_mis: 34.8183, test_width: 3.9861, test_mse: 16.6974, test_rmse: 4.0862 , 
+epoch_num =  10
+2026-10-22 11:29:31,599 - INFO - epoch complete
+2026-10-22 11:29:31,599 - INFO - evaluating now!
+2026-10-22 11:29:37,371 - INFO - Epoch [10/50] (1078) val_mae:2.1179, val_mis: 36.3675, val_width: 4.6166, val_mse: 15.5055, val_rmse: 3.9377 , 
+2026-10-22 11:29:44,682 - INFO - Epoch [10/50] (1078) test_mae:2.1474,test_mis: 36.6360, test_width: 4.6772, test_mse: 15.6897, test_rmse: 3.9610 , 
+epoch_num =  11
+2026-10-22 11:31:02,617 - INFO - epoch complete
+2026-10-22 11:31:02,617 - INFO - evaluating now!
+2026-10-22 11:31:06,085 - INFO - Epoch [11/50] (1176) val_mae:2.4977, val_mis: 49.5204, val_width: 4.3219, val_mse: 19.4652, val_rmse: 4.4119 , 
+2026-10-22 11:31:12,836 - INFO - Epoch [11/50] (1176) test_mae:2.4347,test_mis: 46.8812, test_width: 4.3821, test_mse: 18.9865, test_rmse: 4.3573 , 
+epoch_num =  12
+2026-10-22 11:32:03,383 - INFO - epoch complete
+2026-10-22 11:32:03,383 - INFO - evaluating now!
+2026-10-22 11:32:06,778 - INFO - Epoch [12/50] (1274) val_mae:1.6968, val_mis: 30.7334, val_width: 3.7891, val_mse: 13.8084, val_rmse: 3.7160 , 
+2026-10-22 11:32:13,557 - INFO - Epoch [12/50] (1274) test_mae:1.7057,test_mis: 30.5172, test_width: 3.8442, test_mse: 13.8722, test_rmse: 3.7245 , 
+2026-10-22 11:32:13,560 - INFO - Saved model at 12
+2026-10-22 11:32:13,560 - INFO - Val loss decrease from 1.8494 to 1.6968, saving to models/epo12.tar
+epoch_num =  13
+2026-10-22 11:33:03,823 - INFO - epoch complete
+2026-10-22 11:33:03,823 - INFO - evaluating now!
+2026-10-22 11:33:07,187 - INFO - Epoch [13/50] (1372) val_mae:1.6404, val_mis: 29.8240, val_width: 3.6715, val_mse: 13.6347, val_rmse: 3.6925 , 
+2026-10-22 11:33:13,931 - INFO - Epoch [13/50] (1372) test_mae:1.6396,test_mis: 29.3933, test_width: 3.7319, test_mse: 13.6196, test_rmse: 3.6905 , 
+2026-10-22 11:33:13,939 - INFO - Saved model at 13
+2026-10-22 11:33:13,939 - INFO - Val loss decrease from 1.6968 to 1.6404, saving to models/epo13.tar
+epoch_num =  14
+2026-10-22 11:34:04,243 - INFO - epoch complete
+2026-10-22 11:34:04,243 - INFO - evaluating now!
+2026-10-22 11:34:07,633 - INFO - Epoch [14/50] (1470) val_mae:1.9864, val_mis: 35.4867, val_width: 4.0139, val_mse: 16.2860, val_rmse: 4.0356 , 
+2026-10-22 11:34:14,370 - INFO - Epoch [14/50] (1470) test_mae:1.9726,test_mis: 34.5990, test_width: 4.0699, test_mse: 16.2519, test_rmse: 4.0314 , 
+epoch_num =  15
+2026-10-22 11:35:08,271 - INFO - epoch complete
+2026-10-22 11:35:08,272 - INFO - evaluating now!
+2026-10-22 11:35:12,320 - INFO - Epoch [15/50] (1568) val_mae:1.7631, val_mis: 31.8280, val_width: 3.6818, val_mse: 14.2047, val_rmse: 3.7689 , 
+2026-10-22 11:35:19,055 - INFO - Epoch [15/50] (1568) test_mae:1.7538,test_mis: 30.9909, test_width: 3.7424, test_mse: 14.1325, test_rmse: 3.7593 , 
+epoch_num =  16
+2026-10-22 11:36:08,980 - INFO - epoch complete
+2026-10-22 11:36:08,981 - INFO - evaluating now!
+2026-10-22 11:36:12,339 - INFO - Epoch [16/50] (1666) val_mae:1.7737, val_mis: 32.5084, val_width: 3.6884, val_mse: 14.2758, val_rmse: 3.7783 , 
+2026-10-22 11:36:19,084 - INFO - Epoch [16/50] (1666) test_mae:1.7606,test_mis: 31.5904, test_width: 3.7438, test_mse: 14.2239, test_rmse: 3.7715 , 
+epoch_num =  17
+2026-10-22 11:37:14,771 - INFO - epoch complete
+2026-10-22 11:37:14,771 - INFO - evaluating now!
+2026-10-22 11:37:18,153 - INFO - Epoch [17/50] (1764) val_mae:1.9735, val_mis: 37.8901, val_width: 3.5972, val_mse: 13.9595, val_rmse: 3.7362 , 
+2026-10-22 11:37:24,907 - INFO - Epoch [17/50] (1764) test_mae:1.9901,test_mis: 38.0056, test_width: 3.6390, test_mse: 14.1157, test_rmse: 3.7571 , 
+epoch_num =  18
+2026-10-22 11:38:18,804 - INFO - epoch complete
+2026-10-22 11:38:18,805 - INFO - evaluating now!
+2026-10-22 11:38:22,184 - INFO - Epoch [18/50] (1862) val_mae:1.7450, val_mis: 31.1846, val_width: 4.0231, val_mse: 13.4584, val_rmse: 3.6686 , 
+2026-10-22 11:38:28,972 - INFO - Epoch [18/50] (1862) test_mae:1.7524,test_mis: 31.0868, test_width: 4.0706, test_mse: 13.5178, test_rmse: 3.6767 , 
+epoch_num =  19
+2026-10-22 11:39:19,726 - INFO - epoch complete
+2026-10-22 11:39:19,726 - INFO - evaluating now!
+2026-10-22 11:39:23,096 - INFO - Epoch [19/50] (1960) val_mae:3.9124, val_mis: 94.6440, val_width: 4.1806, val_mse: 29.6137, val_rmse: 5.4418 , 
+2026-10-22 11:39:30,133 - INFO - Epoch [19/50] (1960) test_mae:3.8358,test_mis: 91.3546, test_width: 4.2203, test_mse: 28.8526, test_rmse: 5.3715 , 
+epoch_num =  20
+2026-10-22 11:40:20,679 - INFO - epoch complete
+2026-10-22 11:40:20,679 - INFO - evaluating now!
+2026-10-22 11:40:24,040 - INFO - Epoch [20/50] (2058) val_mae:2.2808, val_mis: 46.1756, val_width: 3.6820, val_mse: 15.1556, val_rmse: 3.8930 , 
+2026-10-22 11:40:30,804 - INFO - Epoch [20/50] (2058) test_mae:2.2916,test_mis: 46.2360, test_width: 3.7134, test_mse: 15.3631, test_rmse: 3.9196 , 
+epoch_num =  21
+2026-10-22 11:41:20,979 - INFO - epoch complete
+2026-10-22 11:41:20,979 - INFO - evaluating now!
+2026-10-22 11:41:24,346 - INFO - Epoch [21/50] (2156) val_mae:1.7491, val_mis: 27.9304, val_width: 4.3013, val_mse: 14.0207, val_rmse: 3.7444 , 
+2026-10-22 11:41:31,074 - INFO - Epoch [21/50] (2156) test_mae:1.7389,test_mis: 27.4827, test_width: 4.3513, test_mse: 14.0369, test_rmse: 3.7466 , 
+epoch_num =  22
+2026-10-22 11:42:20,922 - INFO - epoch complete
+2026-10-22 11:42:20,922 - INFO - evaluating now!
+2026-10-22 11:42:24,272 - INFO - Epoch [22/50] (2254) val_mae:2.0445, val_mis: 37.6239, val_width: 3.6861, val_mse: 14.1594, val_rmse: 3.7629 , 
+2026-10-22 11:42:31,014 - INFO - Epoch [22/50] (2254) test_mae:2.0717,test_mis: 38.0458, test_width: 3.7170, test_mse: 14.4045, test_rmse: 3.7953 , 
+epoch_num =  23
+2026-10-22 11:43:20,840 - INFO - epoch complete
+2026-10-22 11:43:20,840 - INFO - evaluating now!
+2026-10-22 11:43:24,205 - INFO - Epoch [23/50] (2352) val_mae:1.7321, val_mis: 32.1496, val_width: 3.5147, val_mse: 13.7602, val_rmse: 3.7095 , 
+2026-10-22 11:43:30,941 - INFO - Epoch [23/50] (2352) test_mae:1.7227,test_mis: 31.4044, test_width: 3.5640, test_mse: 13.7717, test_rmse: 3.7110 , 
+epoch_num =  24
+2026-10-22 11:44:20,508 - INFO - epoch complete
+2026-10-22 11:44:20,508 - INFO - evaluating now!
+2026-10-22 11:44:23,853 - INFO - Epoch [24/50] (2450) val_mae:2.2169, val_mis: 48.7571, val_width: 3.2915, val_mse: 24.4051, val_rmse: 4.9401 , 
+2026-10-22 11:44:30,595 - INFO - Epoch [24/50] (2450) test_mae:2.2388,test_mis: 49.4078, test_width: 3.3141, test_mse: 25.9939, test_rmse: 5.0984 , 
+epoch_num =  25
+2026-10-22 11:45:20,422 - INFO - epoch complete
+2026-10-22 11:45:20,422 - INFO - evaluating now!
+2026-10-22 11:45:23,805 - INFO - Epoch [25/50] (2548) val_mae:1.6885, val_mis: 31.4628, val_width: 3.5110, val_mse: 13.5794, val_rmse: 3.6850 , 
+2026-10-22 11:45:30,646 - INFO - Epoch [25/50] (2548) test_mae:1.6734,test_mis: 30.6359, test_width: 3.5552, test_mse: 13.5701, test_rmse: 3.6838 , 
+epoch_num =  26
+2026-10-22 11:46:20,966 - INFO - epoch complete
+2026-10-22 11:46:20,966 - INFO - evaluating now!
+2026-10-22 11:46:24,377 - INFO - Epoch [26/50] (2646) val_mae:1.6418, val_mis: 29.9574, val_width: 3.5580, val_mse: 13.1991, val_rmse: 3.6331 , 
+2026-10-22 11:46:31,122 - INFO - Epoch [26/50] (2646) test_mae:1.6322,test_mis: 29.3290, test_width: 3.6024, test_mse: 13.2520, test_rmse: 3.6403 , 
+epoch_num =  27
+2026-10-22 11:47:21,192 - INFO - epoch complete
+2026-10-22 11:47:21,192 - INFO - evaluating now!
+2026-10-22 11:47:24,606 - INFO - Epoch [27/50] (2744) val_mae:1.5927, val_mis: 29.4652, val_width: 3.5080, val_mse: 12.8938, val_rmse: 3.5908 , 
+2026-10-22 11:47:31,313 - INFO - Epoch [27/50] (2744) test_mae:1.5897,test_mis: 28.9996, test_width: 3.5499, test_mse: 12.9737, test_rmse: 3.6019 , 
+2026-10-22 11:47:31,316 - INFO - Saved model at 27
+2026-10-22 11:47:31,316 - INFO - Val loss decrease from 1.6404 to 1.5927, saving to models/epo27.tar
+epoch_num =  28
+2026-10-22 11:48:21,193 - INFO - epoch complete
+2026-10-22 11:48:21,193 - INFO - evaluating now!
+2026-10-22 11:48:24,633 - INFO - Epoch [28/50] (2842) val_mae:1.8488, val_mis: 38.0987, val_width: 3.4229, val_mse: 13.8545, val_rmse: 3.7222 , 
+2026-10-22 11:48:31,387 - INFO - Epoch [28/50] (2842) test_mae:1.8631,test_mis: 38.1029, test_width: 3.4638, test_mse: 14.1160, test_rmse: 3.7571 , 
+epoch_num =  29
+2026-10-22 11:49:21,357 - INFO - epoch complete
+2026-10-22 11:49:21,357 - INFO - evaluating now!
+2026-10-22 11:49:24,821 - INFO - Epoch [29/50] (2940) val_mae:1.5905, val_mis: 29.0625, val_width: 3.5410, val_mse: 12.6004, val_rmse: 3.5497 , 
+2026-10-22 11:49:31,629 - INFO - Epoch [29/50] (2940) test_mae:1.5927,test_mis: 28.8714, test_width: 3.5793, test_mse: 12.7195, test_rmse: 3.5664 , 
+2026-10-22 11:49:31,632 - INFO - Saved model at 29
+2026-10-22 11:49:31,633 - INFO - Val loss decrease from 1.5927 to 1.5905, saving to models/epo29.tar
+epoch_num =  30
+2026-10-22 11:50:21,449 - INFO - epoch complete
+2026-10-22 11:50:21,449 - INFO - evaluating now!
+2026-10-22 11:50:24,861 - INFO - Epoch [30/50] (3038) val_mae:1.7383, val_mis: 34.2269, val_width: 3.1305, val_mse: 13.4676, val_rmse: 3.6698 , 
+2026-10-22 11:50:31,564 - INFO - Epoch [30/50] (3038) test_mae:1.7218,test_mis: 33.3290, test_width: 3.1711, test_mse: 13.5169, test_rmse: 3.6765 , 
+epoch_num =  31
+2026-10-22 11:51:21,215 - INFO - epoch complete
+2026-10-22 11:51:21,215 - INFO - evaluating now!
+2026-10-22 11:51:24,586 - INFO - Epoch [31/50] (3136) val_mae:3.1433, val_mis: 75.1216, val_width: 3.8723, val_mse: 20.0466, val_rmse: 4.4773 , 
+2026-10-22 11:51:31,314 - INFO - Epoch [31/50] (3136) test_mae:3.1579,test_mis: 75.3653, test_width: 3.8909, test_mse: 20.2911, test_rmse: 4.5046 , 
+epoch_num =  32
+2026-10-22 11:52:20,840 - INFO - epoch complete
+2026-10-22 11:52:20,841 - INFO - evaluating now!
+2026-10-22 11:52:24,181 - INFO - Epoch [32/50] (3234) val_mae:1.5790, val_mis: 30.6702, val_width: 3.1787, val_mse: 12.7495, val_rmse: 3.5706 , 
+2026-10-22 11:52:30,916 - INFO - Epoch [32/50] (3234) test_mae:1.5751,test_mis: 30.1376, test_width: 3.2224, test_mse: 12.8221, test_rmse: 3.5808 , 
+2026-10-22 11:52:30,920 - INFO - Saved model at 32
+2026-10-22 11:52:30,920 - INFO - Val loss decrease from 1.5905 to 1.5790, saving to models/epo32.tar
+epoch_num =  33
+2026-10-22 11:53:20,702 - INFO - epoch complete
+2026-10-22 11:53:20,702 - INFO - evaluating now!
+2026-10-22 11:53:24,132 - INFO - Epoch [33/50] (3332) val_mae:1.6706, val_mis: 31.3114, val_width: 3.4955, val_mse: 12.7533, val_rmse: 3.5712 , 
+2026-10-22 11:53:30,894 - INFO - Epoch [33/50] (3332) test_mae:1.6807,test_mis: 31.3181, test_width: 3.5322, test_mse: 12.9175, test_rmse: 3.5941 , 
+epoch_num =  34
+2026-10-22 11:54:21,119 - INFO - epoch complete
+2026-10-22 11:54:21,119 - INFO - evaluating now!
+2026-10-22 11:54:24,489 - INFO - Epoch [34/50] (3430) val_mae:1.6532, val_mis: 29.3993, val_width: 3.6505, val_mse: 13.2275, val_rmse: 3.6370 , 
+2026-10-22 11:54:31,242 - INFO - Epoch [34/50] (3430) test_mae:1.6444,test_mis: 29.0817, test_width: 3.6841, test_mse: 13.3392, test_rmse: 3.6523 , 
+epoch_num =  35
+2026-10-22 11:55:21,066 - INFO - epoch complete
+2026-10-22 11:55:21,066 - INFO - evaluating now!
+2026-10-22 11:55:24,462 - INFO - Epoch [35/50] (3528) val_mae:1.5746, val_mis: 28.9216, val_width: 3.5049, val_mse: 12.5796, val_rmse: 3.5468 , 
+2026-10-22 11:55:31,213 - INFO - Epoch [35/50] (3528) test_mae:1.5792,test_mis: 28.7018, test_width: 3.5445, test_mse: 12.7107, test_rmse: 3.5652 , 
+2026-10-22 11:55:31,216 - INFO - Saved model at 35
+2026-10-22 11:55:31,217 - INFO - Val loss decrease from 1.5790 to 1.5746, saving to models/epo35.tar
+epoch_num =  36
+2026-10-22 11:56:21,003 - INFO - epoch complete
+2026-10-22 11:56:21,004 - INFO - evaluating now!
+2026-10-22 11:56:24,370 - INFO - Epoch [36/50] (3626) val_mae:1.6080, val_mis: 30.4186, val_width: 3.4878, val_mse: 13.0491, val_rmse: 3.6124 , 
+2026-10-22 11:56:31,153 - INFO - Epoch [36/50] (3626) test_mae:1.6140,test_mis: 30.1092, test_width: 3.5272, test_mse: 13.1674, test_rmse: 3.6287 , 
+epoch_num =  37
+2026-10-22 11:57:21,652 - INFO - epoch complete
+2026-10-22 11:57:21,652 - INFO - evaluating now!
+2026-10-22 11:57:25,054 - INFO - Epoch [37/50] (3724) val_mae:1.6209, val_mis: 30.7624, val_width: 3.2298, val_mse: 12.5179, val_rmse: 3.5381 , 
+2026-10-22 11:57:31,914 - INFO - Epoch [37/50] (3724) test_mae:1.6247,test_mis: 30.5307, test_width: 3.2646, test_mse: 12.5966, test_rmse: 3.5492 , 
+epoch_num =  38
+2026-10-22 11:58:22,408 - INFO - epoch complete
+2026-10-22 11:58:22,408 - INFO - evaluating now!
+2026-10-22 11:58:25,744 - INFO - Epoch [38/50] (3822) val_mae:3.5540, val_mis: 82.4919, val_width: 4.2818, val_mse: 27.0730, val_rmse: 5.2032 , 
+2026-10-22 11:58:32,468 - INFO - Epoch [38/50] (3822) test_mae:3.5568,test_mis: 82.4240, test_width: 4.2768, test_mse: 27.2690, test_rmse: 5.2220 , 
+epoch_num =  39
+2026-10-22 11:59:22,779 - INFO - epoch complete
+2026-10-22 11:59:22,779 - INFO - evaluating now!
+2026-10-22 11:59:26,107 - INFO - Epoch [39/50] (3920) val_mae:1.5579, val_mis: 29.0688, val_width: 3.3738, val_mse: 12.5499, val_rmse: 3.5426 , 
+2026-10-22 11:59:32,853 - INFO - Epoch [39/50] (3920) test_mae:1.5591,test_mis: 28.7468, test_width: 3.4129, test_mse: 12.6643, test_rmse: 3.5587 , 
+2026-10-22 11:59:32,856 - INFO - Saved model at 39
+2026-10-22 11:59:32,857 - INFO - Val loss decrease from 1.5746 to 1.5579, saving to models/epo39.tar
+epoch_num =  40
+2026-10-22 12:00:22,787 - INFO - epoch complete
+2026-10-22 12:00:22,788 - INFO - evaluating now!
+2026-10-22 12:00:26,147 - INFO - Epoch [40/50] (4018) val_mae:1.9151, val_mis: 37.9632, val_width: 3.3808, val_mse: 13.2552, val_rmse: 3.6408 , 
+2026-10-22 12:00:32,875 - INFO - Epoch [40/50] (4018) test_mae:1.9243,test_mis: 37.9463, test_width: 3.4074, test_mse: 13.4156, test_rmse: 3.6627 , 
+epoch_num =  41
+2026-10-22 12:01:22,712 - INFO - epoch complete
+2026-10-22 12:01:22,712 - INFO - evaluating now!
+2026-10-22 12:01:26,068 - INFO - Epoch [41/50] (4116) val_mae:1.5794, val_mis: 30.0797, val_width: 3.2670, val_mse: 12.5081, val_rmse: 3.5367 , 
+2026-10-22 12:01:32,824 - INFO - Epoch [41/50] (4116) test_mae:1.5844,test_mis: 29.8851, test_width: 3.2987, test_mse: 12.6355, test_rmse: 3.5546 , 
+epoch_num =  42
+2026-10-22 12:02:22,673 - INFO - epoch complete
+2026-10-22 12:02:22,673 - INFO - evaluating now!
+2026-10-22 12:02:26,022 - INFO - Epoch [42/50] (4214) val_mae:1.6036, val_mis: 29.8338, val_width: 3.4276, val_mse: 12.6695, val_rmse: 3.5594 , 
+2026-10-22 12:02:32,829 - INFO - Epoch [42/50] (4214) test_mae:1.6074,test_mis: 29.6950, test_width: 3.4580, test_mse: 12.7956, test_rmse: 3.5771 , 
+epoch_num =  43
+2026-10-22 12:03:22,506 - INFO - epoch complete
+2026-10-22 12:03:22,506 - INFO - evaluating now!
+2026-10-22 12:03:25,908 - INFO - Epoch [43/50] (4312) val_mae:1.5839, val_mis: 29.4254, val_width: 3.4011, val_mse: 12.4035, val_rmse: 3.5219 , 
+2026-10-22 12:03:32,619 - INFO - Epoch [43/50] (4312) test_mae:1.5895,test_mis: 29.2817, test_width: 3.4303, test_mse: 12.5348, test_rmse: 3.5405 , 
+epoch_num =  44
+2026-10-22 12:04:22,723 - INFO - epoch complete
+2026-10-22 12:04:22,723 - INFO - evaluating now!
+2026-10-22 12:04:26,112 - INFO - Epoch [44/50] (4410) val_mae:1.5788, val_mis: 30.0271, val_width: 3.4023, val_mse: 12.5972, val_rmse: 3.5493 , 
+2026-10-22 12:04:32,823 - INFO - Epoch [44/50] (4410) test_mae:1.5699,test_mis: 29.4388, test_width: 3.4343, test_mse: 12.6668, test_rmse: 3.5590 , 
+epoch_num =  45
+2026-10-22 12:05:22,711 - INFO - epoch complete
+2026-10-22 12:05:22,711 - INFO - evaluating now!
+2026-10-22 12:05:26,102 - INFO - Epoch [45/50] (4508) val_mae:1.6141, val_mis: 30.3526, val_width: 3.3187, val_mse: 12.5035, val_rmse: 3.5360 , 
+2026-10-22 12:05:32,790 - INFO - Epoch [45/50] (4508) test_mae:1.6227,test_mis: 30.2758, test_width: 3.3491, test_mse: 12.6468, test_rmse: 3.5562 , 
+epoch_num =  46
+2026-10-22 12:06:22,739 - INFO - epoch complete
+2026-10-22 12:06:22,739 - INFO - evaluating now!
+2026-10-22 12:06:26,130 - INFO - Epoch [46/50] (4606) val_mae:2.0620, val_mis: 39.6277, val_width: 3.5595, val_mse: 13.6718, val_rmse: 3.6975 , 
+2026-10-22 12:06:32,838 - INFO - Epoch [46/50] (4606) test_mae:2.0746,test_mis: 39.7390, test_width: 3.5792, test_mse: 13.8489, test_rmse: 3.7214 , 
+epoch_num =  47
+2026-10-22 12:07:22,617 - INFO - epoch complete
+2026-10-22 12:07:22,617 - INFO - evaluating now!
+2026-10-22 12:07:26,007 - INFO - Epoch [47/50] (4704) val_mae:1.7140, val_mis: 33.3240, val_width: 3.2765, val_mse: 12.4606, val_rmse: 3.5300 , 
+2026-10-22 12:07:32,752 - INFO - Epoch [47/50] (4704) test_mae:1.7249,test_mis: 33.3805, test_width: 3.3010, test_mse: 12.6434, test_rmse: 3.5558 , 
+epoch_num =  48
+2026-10-22 12:08:22,684 - INFO - epoch complete
+2026-10-22 12:08:22,684 - INFO - evaluating now!
+2026-10-22 12:08:26,058 - INFO - Epoch [48/50] (4802) val_mae:1.8410, val_mis: 34.1626, val_width: 3.5119, val_mse: 12.8132, val_rmse: 3.5796 , 
+2026-10-22 12:08:32,805 - INFO - Epoch [48/50] (4802) test_mae:1.8553,test_mis: 34.2656, test_width: 3.5345, test_mse: 12.9924, test_rmse: 3.6045 , 
+epoch_num =  49
+2026-10-22 12:09:22,861 - INFO - epoch complete
+2026-10-22 12:09:22,862 - INFO - evaluating now!
+2026-10-22 12:09:26,252 - INFO - Epoch [49/50] (4900) val_mae:1.7699, val_mis: 33.8686, val_width: 3.6281, val_mse: 14.6260, val_rmse: 3.8244 , 
+2026-10-22 12:09:33,001 - INFO - Epoch [49/50] (4900) test_mae:1.7862,test_mis: 33.8104, test_width: 3.6671, test_mse: 15.0645, test_rmse: 3.8813 , 

@@ -1,0 +1,5 @@
+METR-LA shipped "Underwood" parameters (gpde_quantile_phy_model, reg 0.0005):
+  sensors with negative k_m (speed rises with "density"): 147 of 207
+  v_f range 11.8 .. 44.5 mph (median 35.0); mean observed speed 58.6 mph
+  observed speed minus physics target, median over sensors: 20.3 mph
+  sensors where the physics target is below the observed mean: 207 of 207
