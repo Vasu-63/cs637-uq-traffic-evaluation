@@ -1,0 +1,9 @@
+dataset,comparison,mae_gpde,mae_phy,mae_phy_vs_gpde_%,mis_gpde,mis_phy,mis_phy_vs_gpde_%,mse_gpde,mse_phy,mse_phy_vs_gpde_%
+PEMSD8,"Table 3 (baseline fixed, +Phy random)",1.7951,1.6931,-5.7,33.1229,32.5104,-1.8,15.3396,13.7829,-10.1
+PEMSD8,same attack: fixed start,1.7951,1.7168,-4.4,33.1229,33.017,-0.3,15.3396,13.9468,-9.1
+PEMSD8,same attack: random start,1.7691,1.6931,-4.3,32.5768,32.5104,-0.2,15.1287,13.7829,-8.9
+PEMSD8,no attack (clean),1.6933,1.6245,-4.1,31.0168,31.0699,0.2,14.5161,13.3061,-8.3
+METR-LA,"Table 3 (baseline fixed, +Phy random)",4.0691,3.8979,-4.2,65.8151,61.9969,-5.8,61.4537,59.5285,-3.1
+METR-LA,same attack: fixed start,4.0691,3.9661,-2.5,65.8151,63.4775,-3.6,61.4537,60.9651,-0.8
+METR-LA,same attack: random start,3.9956,3.8979,-2.4,64.428,61.9969,-3.8,60.0855,59.5285,-0.9
+METR-LA,no attack (clean),3.7934,3.7113,-2.2,60.5942,57.9794,-4.3,56.183,55.4502,-1.3
