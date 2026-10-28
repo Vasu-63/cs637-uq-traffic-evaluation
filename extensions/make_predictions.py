@@ -68,7 +68,7 @@ if __name__ == "__main__":
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--dataset_dir", required=True)
     ap.add_argument("--variant", action="append", required=True)
-    ap.add_argument("--out", default="p3_predictions")
+    ap.add_argument("--out", default="predictions_out")
     ap.add_argument("--batch_size", type=int, default=256)
     a = ap.parse_args()
     a.out = os.path.abspath(a.out)

@@ -18,7 +18,7 @@ All numbers here come from files in this folder (`results/`, `logs/`) or from th
 | `figures/` | Figures used in the slides |
 | `conformal/` | Calibration metrics (raw, CQR, per-sensor CQR, ACI) for the six models of Experiment 5 |
 | `logs/` | Training logs of every run (best epoch = last `saving to models/epoN.tar` line) |
-| `implementation_colab.ipynb` | The Colab notebook used to run everything |
+| `implementation_colab.ipynb` | Colab notebook that runs the whole pipeline: setup, tests, training runs, evaluation, summaries, calibration check |
 
 ## Setup used for all runs
 
@@ -27,8 +27,8 @@ All numbers here come from files in this folder (`results/`, `logs/`) or from th
 - Hardware: Google Colab, free T4 GPU; about 1.0-1.1 min per PEMSD8 epoch when one run has the GPU to itself.
 - Training command (inside a run folder):
   `python dcrnn_train_pytorch.py --config_filename=data/model/dcrnn_la.yaml`
-- `eval_run.py` imports the team's per-horizon metric script `horizon_metrics.py` (from the reproduction folder);
-  put that folder on the Python path, e.g. `PYTHONPATH=../reproduction/scripts` (adjust to where it lives in the repo).
+- `eval_run.py` uses the per-horizon metric script `horizon_metrics.py` from the reproduction folder. By default it looks in
+  `reproduction/scripts/`; pass `--metrics_scripts <folder>` if it is elsewhere.
 - `tests/test_physics_losses.py` compares our loss with the authors' `underwood_loss`, so the authors' code must be
   importable when the tests run (see the top of the test file for the path it expects).
 - Evaluation command:

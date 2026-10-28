@@ -34,7 +34,7 @@ Usage
         --npz quantile=/content/drive/MyDrive/CS637/outputs/pemsd4/quantile.npz \
         --npz gpde_quantile=.../gpde_quantile.npz \
         --npz gpde_quantile_phy=.../gpde_quantile_phy.npz \
-        --out /content/drive/MyDrive/CS637/p3/coverage
+        --out /content/drive/MyDrive/CS637/extensions_out/coverage
 
     python coverage_conformal.py --selftest      # synthetic data, no files needed
 """
@@ -402,7 +402,7 @@ if __name__ == "__main__":
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--npz", action="append", default=[],
                     help="name=path to a prediction .npz (repeat for each model)")
-    ap.add_argument("--out", default="p3_coverage")
+    ap.add_argument("--out", default="coverage_out")
     ap.add_argument("--alpha", type=float, default=ALPHA_DEFAULT)
     ap.add_argument("--aci-gamma", type=float, default=0.005)
     ap.add_argument("--selftest", action="store_true")
