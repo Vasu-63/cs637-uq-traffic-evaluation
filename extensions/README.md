@@ -74,10 +74,10 @@ Split conformal assumes exchangeable data; validation precedes test in time, so 
 
 ## How to run
 
-1. Put the `.py` files in `MyDrive/CS637/p3/extensions/` and open `calibration_failure_latency.ipynb` in Colab (T4 GPU for sections 3 and 4; section 2 measures the CPU).
+1. Put the `.py` files in `MyDrive/CS637/extensions_out/scripts/` and open `calibration_failure_latency.ipynb` in Colab (T4 GPU for sections 3 and 4; section 2 measures the CPU).
 2. Section 1 clones the authors' three PEMSD4 Quantile variants and defines `args`.
 3. Section 2: latency (about 3 min).
-4. Section 3: builds PEMSD4 with `p1/scripts/process_pems.py` from `data/raw/pems04.npz` (on local disk), checks the clean score (within 1-3% of the authors' logs: 2.6702 / 2.1338 / 2.0189 MAE), then the full sensor-failure run (a few hours), then 3b, the final fix (about 10 min for 3 sensor sets).
+4. Section 3: builds PEMSD4 with `process_pems.py` (reproduction scripts) from `data/raw/pems04.npz` (on local disk), checks the clean score (within 1-3% of the authors' logs: 2.6702 / 2.1338 / 2.0189 MAE), then the full sensor-failure run (a few hours), then 3b, the final fix (about 10 min for 3 sensor sets).
 5. Section 4: predictions from the checkpoints and coverage/conformal (about 5 min); cross-check on the shared prediction files.
 6. `python make_figures.py` rebuilds the figures from `results/`.
 

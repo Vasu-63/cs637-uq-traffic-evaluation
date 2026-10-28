@@ -29,10 +29,10 @@ drawn with `--seeds` different random sensor sets.
 Usage (Colab, GPU recommended):
     python sensor_failure.py \
         --dataset_dir /content/data/PEMSD4 \
-        --variant /content/drive/MyDrive/CS637/p3/models/quantile_model_PEMSD4 \
+        --variant /content/drive/MyDrive/CS637/extensions_out/models/quantile_model_PEMSD4 \
         --variant .../gpde_quantile_model_PEMSD4 \
         --variant .../gpde_quantile_phy_model_PEMSD4 \
-        --out /content/drive/MyDrive/CS637/p3/sensor_failure
+        --out /content/drive/MyDrive/CS637/extensions_out/sensor_failure
 """
 import argparse
 import csv
@@ -264,7 +264,7 @@ if __name__ == "__main__":
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--dataset_dir", required=True, help="folder with train/val/test.npz (PEMSD4)")
     ap.add_argument("--variant", action="append", required=True)
-    ap.add_argument("--out", default="p3_sensor_failure")
+    ap.add_argument("--out", default="sensor_failure_out")
     ap.add_argument("--fractions", default="0.05,0.1,0.2,0.4")
     ap.add_argument("--seeds", type=int, default=3)
     ap.add_argument("--batch_size", type=int, default=256)

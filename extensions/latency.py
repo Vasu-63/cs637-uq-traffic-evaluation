@@ -21,10 +21,10 @@ depend on the values.
 
 Usage (Colab or laptop):
     python latency.py \
-        --variant /content/drive/MyDrive/CS637/p3/models/quantile_model_PEMSD4 \
+        --variant /content/drive/MyDrive/CS637/extensions_out/models/quantile_model_PEMSD4 \
         --variant .../gpde_quantile_model_PEMSD4 \
         --variant .../gpde_quantile_phy_model_PEMSD4 \
-        --out /content/drive/MyDrive/CS637/p3/latency
+        --out /content/drive/MyDrive/CS637/extensions_out/latency
 """
 import os
 os.environ["CUDA_VISIBLE_DEVICES"] = ""          # before torch is imported
@@ -153,8 +153,8 @@ if __name__ == "__main__":
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--variant", action="append", required=True,
                     help="path to an authors' variant folder with models/epoN.tar")
-    ap.add_argument("--out", default="p3_latency")
-    # defaults match the run behind p3/latency/*.csv (batch 256 took ~10 min per model on Colab's CPU)
+    ap.add_argument("--out", default="latency_out")
+    # defaults match the run behind results/latency.csv and results/model_size.csv (batch 256 took ~10 min per model on Colab's CPU)
     ap.add_argument("--batches", default="1,16,64")
     ap.add_argument("--reps", type=int, default=10)
     ap.add_argument("--warmup", type=int, default=3)

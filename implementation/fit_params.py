@@ -10,7 +10,7 @@ PEMSD8_rho_max.npy (checked: mean abs differences 0.003 and 0.001).
 
 Usage (Colab):
     python implementation/fit_params.py --data /content/data/PEMSD8/pems8ndy.npy \
-        --out /content/drive/MyDrive/CS637/p2/params
+        --out implementation/params
 
 Writes to --out:
     underwood_v_f.npy, underwood_k_m.npy, greenshields_v_f.npy, greenshields_k_jam.npy  (170,)

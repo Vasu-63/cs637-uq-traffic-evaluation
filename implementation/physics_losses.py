@@ -1,5 +1,5 @@
 """
-Physics losses for speed forecasting (CS637, Person 2).
+Physics losses for speed forecasting (CS637 project).
 
 Our own implementation of the physics regulariser from Bao et al. (TCPS 2026):
     L_phy = mean( mask * (v_pred - V(k))^2 )

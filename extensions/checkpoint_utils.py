@@ -73,7 +73,7 @@ def load_variant(variant_dir, epoch=None, config=None):
 
     _, _, adj_mx = utils.load_graph_data(cfg["data"]["graph_pkl_filename"])
     mk = cfg["model"]
-    logger = logging.getLogger("p3")
+    logger = logging.getLogger("extensions")
     model = DCRNNModel(adj_mx, logger, **mk).to(device)
     model.eval()
 

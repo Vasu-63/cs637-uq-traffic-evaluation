@@ -1,16 +1,16 @@
 """Per-horizon evaluation of one of OUR training runs (copies of the authors' variant folders).
 
-Based on the team's p1/scripts/eval_checkpoint.py, with three changes:
+Based on the reproduction folder's checkpoint-evaluation script, with three changes:
   * uses the run's own training config data/model/dcrnn_la.yaml (not the authors' pretrained one);
   * loads models/epo<N>.tar from the run folder (the authors' load_model hard-codes a
     'gpde_quantile_phy_model_PEMSD8/models/...' path, so it is replaced at runtime);
-  * computes 15/30/60-min metrics with the team's p1/scripts/horizon_metrics.py and appends
+  * computes 15/30/60-min metrics with horizon_metrics.py (reproduction scripts) and appends
     them to one CSV, so every run is scored the same way.
 The authors' code and our run folders are not modified.
 
 Usage (Colab), from anywhere:
     python implementation/eval_run.py --run <run folder> --epoch 30 --data_dir /content/data/PEMSD8 \
-        --label pemsd8_underwood_ours --csv <p2>/results/horizon_metrics.csv
+        --label pemsd8_underwood_ours --csv implementation/results/horizon_metrics.csv
 For a Greenshields run also pass --law greenshields --vf <...>/greenshields_v_f.npy --k <...>/greenshields_k_jam.npy
 (only the import needs them; evaluation itself does not use the physics loss).
 """
@@ -18,12 +18,13 @@ import argparse, csv, json, os, sys, time
 import numpy as np, torch, yaml
 
 p = argparse.ArgumentParser()
-p.add_argument('--run', required=True, help='run folder, e.g. .../p2/runs/pemsd8_underwood_ours')
+p.add_argument('--run', required=True, help='run folder, e.g. runs/pemsd8_underwood_ours')
 p.add_argument('--epoch', type=int, required=True, help='best epoch (last "saving to models/epoN.tar" in the log)')
 p.add_argument('--data_dir', required=True)
 p.add_argument('--label', required=True, help='name of this run in the CSV')
 p.add_argument('--csv', required=True)
-p.add_argument('--p1_scripts', default='/content/drive/MyDrive/CS637/p1/scripts')
+p.add_argument('--metrics_scripts', default=os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'reproduction', 'scripts'),
+               help='folder containing horizon_metrics.py')
 p.add_argument('--save_npz', default=None, help='optional path to save val/test predictions')
 p.add_argument('--law', default='underwood')
 p.add_argument('--vf', default=None)
@@ -43,10 +44,10 @@ torch.load = _load
 run = os.path.abspath(a.run)
 os.chdir(run)
 sys.path.insert(0, run)
-sys.path.insert(0, a.p1_scripts)
+sys.path.insert(0, os.path.abspath(a.metrics_scripts))
 from lib.utils import load_graph_data                      # noqa: E402  (authors' code, in the run folder)
 from model.pytorch.dcrnn_supervisor import DCRNNSupervisor  # noqa: E402
-from horizon_metrics import horizon_table                   # noqa: E402  (team script)
+from horizon_metrics import horizon_table                   # noqa: E402  (reproduction scripts)
 
 ckpt = os.path.join(run, 'models', f'epo{a.epoch}.tar')
 assert os.path.exists(ckpt), f'{ckpt} not found; have {sorted(os.listdir(os.path.join(run, "models")))}'
@@ -61,7 +62,7 @@ DCRNNSupervisor.load_model = _load_model
 cfg = yaml.safe_load(open(os.path.join(run, 'data', 'model', 'dcrnn_la.yaml')))
 cfg['data']['dataset_dir'] = a.data_dir
 cfg['train']['epoch'] = a.epoch                      # epoch > 0 makes the supervisor call load_model
-cfg['train']['log_dir'] = f'/content/p2_eval_logs/{a.label}'
+cfg['train']['log_dir'] = f'/content/eval_logs/{a.label}'
 
 _, _, adj = load_graph_data(cfg['data']['graph_pkl_filename'])
 t0 = time.time()
