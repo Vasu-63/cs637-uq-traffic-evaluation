@@ -56,7 +56,7 @@ Sources: `results/sensor_failure_metrics.csv` (dead and stuck, with and without 
 - About 25k parameters, 0.1 MB checkpoint. GPDE adds 1,236 parameters (+5%) and about 6 ms. The physics loss is training-only: +GPDE+Phy has exactly the same parameters as +GPDE; its 3 ms difference is measurement noise.
 - Not measured: the model's own memory. `peak_rss_MB` in `model_size.csv` is the whole process (Python, PyTorch and the loader's batch-256 warm-up), not the model.
 
-Sources: `results/latency.csv`, `results/model_size.csv` (Colab CPU, GPU hidden, PyTorch saw 1 thread). A second, independent run agreed at batch 1 (50.6 vs 49.3 ms plain, 55.1 vs 55.4 ms +GPDE).
+Sources: `results/latency.csv`, `results/model_size.csv` (Colab CPU, GPU hidden, PyTorch saw 1 thread).
 
 ## Methods
 

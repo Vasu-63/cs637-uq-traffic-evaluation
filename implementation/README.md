@@ -3,7 +3,7 @@
 This folder holds our own implementation of the paper's physics-informed loss and the experiments built on it.
 All numbers here come from files in this folder (`results/`, `logs/`) or from the paper's Tables 1 and 2.
 
-> **Status (24 Oct):** all experiments done. PEMSD8 comparisons use 3 seeds, METR-LA uses 2.
+PEMSD8 comparisons use 3 seeds, METR-LA uses 2.
 
 ## Contents
 
@@ -184,5 +184,5 @@ then `python coverage_conformal.py --npz name=<file> ... --out conformal`.
 ## Not done / future work
 
 - METR-LA trained for the full 50 epochs (we used 25 for time).
-- More seeds and other λ values for the time-aligned loss; MAEMIS and EDL variants; conformal calibration on top of it.
+- More seeds and other λ values for the time-aligned loss; MAEMIS and EDL variants with it.
 - A density input for METR-LA (it has none), which would be needed for the physics loss to mean anything there.
