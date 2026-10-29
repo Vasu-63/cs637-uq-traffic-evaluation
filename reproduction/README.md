@@ -93,7 +93,7 @@ All of these tables are also in `results/reproduction_results.xlsx`.
 
 ### Rerun: the authors' own physics code, new seeds
 
-The seed check above pairs our GPDE+Quantile runs with physics runs that used the implementation workstream's re-implemented loss. To rule out any difference between the two implementations, we trained both models again on two new seeds, 3 and 4. This time the physics runs used **the authors' own folder** `gpde_quantile_phy_model_PEMSD8` (λ = 0.002), unchanged except for the seed (`notebooks/pemsd8_physics_rerun.ipynb`).
+The seed check above pairs our GPDE+Quantile runs with physics runs that used the implementation workstream's re-implemented loss. To rule out any difference between the two implementations, we trained both models again on two new seeds, 3 and 4. This time the physics runs used **the authors' own folder** `gpde_quantile_phy_model_PEMSD8` (λ = 0.002), unchanged except for the seed (`notebooks/pemsd8_physics_rerun.ipynb`, seed 3 runs and the analysis; `pemsd8_physics_rerun_account2.ipynb`, seed 4 runs). The rerun wrote only to a separate Drive folder, so the first run's files were not touched.
 
 **Rerun against Table 1** (averaged reading, MAE 15 / 30 / 60 min, 2 seeds):
 
@@ -135,7 +135,7 @@ About 25 minutes on the first run. Choose Runtime → T4 GPU, then Run all.
 
 Expected sample counts: 11,871 train, 1,676 val and 3,376 test windows. That is 47 batches per epoch, the same as the authors' logs.
 
-### 2. PEMSD8 retraining and seed check (`notebooks/pemsd8_retraining_and_seed_check.ipynb`)
+### 2. PEMSD8 retraining and seed check (`notebooks/pemsd8_retraining_and_seed_check_ipynb.ipynb`)
 
 There are four runs of about 50 minutes each, split over two Colab accounts by setting `MY_RUNS` in section 0:
 
@@ -144,7 +144,7 @@ There are four runs of about 50 minutes each, split over two Colab accounts by s
 | A | `['pemsd8_gpde_quantile_seed0', 'pemsd8_quantile_seed0']` |
 | B | `['pemsd8_gpde_quantile_seed1', 'pemsd8_gpde_quantile_seed2']` |
 
-Run all on both accounts.
+Run all on both accounts. The notebook is the same on both; only `MY_RUNS` differs. The first account's copy, with its outputs and tables A–D, is `pemsd8_retraining_and_seed_check_ipynb.ipynb`, and the second account's is `pemsd8_retraining_and_seed_check_ipynb_account2.ipynb`.
 
 | Section | What it does |
 |---|---|
@@ -162,6 +162,17 @@ A run marked `DONE` on Drive is never retrained, so re-running is safe.
 | `pemsd8_gpde_quantile_seed2` | GPDE+Quantile | 2 | 44 | 51 | 1.5672 |
 
 The best epoch is the one with the lowest validation MAE, which is also the last checkpoint the authors' code saves. Library versions and the authors' repo commit are printed in section 0 and section 1 of the notebooks.
+
+### 3. Physics-loss rerun (`notebooks/pemsd8_physics_rerun.ipynb`)
+
+Four runs of about 50 minutes: GPDE+Quantile and the authors' own GPDE+Quantile+Phy folder, on seeds 3 and 4. The notebook reads the authors' code and the first run's results from `MyDrive/CS637/`, and writes only to a separate folder, `MyDrive/CS637_rerun/` (create it and share it with the second account first).
+
+| Account | `MY_RUNS` |
+|---|---|
+| A | `['pemsd8_gpde_quantile_seed3', 'pemsd8_gpde_quantile_phy_seed3']` |
+| B | `['pemsd8_gpde_quantile_seed4', 'pemsd8_gpde_quantile_phy_seed4']` |
+
+Section 5 prints the rerun against Table 1, the seed check for the new pairs and for all five pairs, and the check that the two physics implementations agree. The second account could not write into run folders it created inside the shared folder, so its checkpoints and logs were copied to that account's own Drive; the metrics CSVs are all in `results/rerun/pemsd8_runs/`.
 
 ## What we changed, and why
 
@@ -184,8 +195,8 @@ None of the authors' files are edited in their repo. Every change is made in a c
 The numbers refer to the team's findings list.
 
 - **Table 1 horizons are cumulative averages (15, 35, 39, 40).** Both datasets report "15 / 30 / 60 min" as averages up to that time. On PEMSD4, the reported numbers also include duplicated padding samples.
-- **Single runs, not means of five (16, 41).** The PEMSD4 rows equal one logged run to 3–4 decimals, although Section 6.1.2 says five runs were averaged. The seed is fixed in the code, and no standard deviations are reported. Our 3-seed spread is larger than the claimed physics gain.
-- **The physics loss adds nothing on PEMSD8 (41, 42).** The whole headline gain comes from GPDE, which is prior work.
+- **Single runs, not means of five (16, 41).** The PEMSD4 rows equal one logged run to 3–4 decimals, although Section 6.1.2 says five runs were averaged. The seed is fixed in the code, and no standard deviations are reported. Our seed-to-seed spread over 5 seeds (0.016–0.028 MAE) is larger than the claimed physics gain (0.017).
+- **The physics loss adds nothing on PEMSD8 (41, 42, 45).** Over 5 paired seeds, including 2 with the authors' own physics code, it is better in only 1 of 5 seeds at each horizon. The whole headline gain comes from GPDE, which is prior work.
 - **MAEMIS PEMSD4 60-min MAE typo (17):** 3.167 printed; the log gives 2.6805.
 - **The reported "MIS" is not Eq. 4 (13).** `mis_loss` adds \|y − median\| to the standard interval score. We report both versions (`mis_authors`, `mis_std`).
 - **Scrambled diffusion matrices (14).** `DCGRUCell._build_sparse_matrix`, inherited from DCRNN-PyTorch, re-sorts the sparse indices but not the values. On the PEMSD4 graph, the stored matrix differs from the intended one by up to 0.704, where the largest entry is 1.0, with an identical sparsity pattern. Every reported and reproduced result was trained with this bug; its effect on accuracy is untested.
@@ -198,8 +209,10 @@ reproduction/
 ├── README.md
 ├── notebooks/
 │   ├── pemsd4_checkpoint_evaluation.ipynb
-│   ├── pemsd8_retraining_and_seed_check.ipynb
-│   └── pemsd8_physics_rerun.ipynb       authors' own physics code, seeds 3-4
+│   ├── pemsd8_retraining_and_seed_check_ipynb.ipynb            first account (tables A-D)
+│   ├── pemsd8_retraining_and_seed_check_ipynb_account2.ipynb   second account
+│   ├── pemsd8_physics_rerun.ipynb                              rerun, first account (analysis)
+│   └── pemsd8_physics_rerun_account2.ipynb                     rerun, second account
 ├── scripts/
 │   ├── process_pems.py          raw PEMS array -> train/val/test windows
 │   ├── eval_checkpoint.py       evaluate one checkpoint, save val + test predictions
@@ -216,6 +229,6 @@ reproduction/
 │   ├── reproduction_results.xlsx
 │   └── rerun/                   pemsd8_runs/<run>.csv, pemsd8_rerun_*.csv
 └── logs/
-    ├── <run>/                   info.log and stdout.log of each PEMSD8 run
+    ├── <run>/                   info.log (all 50 epochs) of each PEMSD8 run, plus stdout.log for the first account's runs
     └── rerun/<run>/             the same for the 4 rerun runs
 ```
