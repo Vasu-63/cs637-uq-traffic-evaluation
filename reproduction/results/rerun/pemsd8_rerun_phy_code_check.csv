@@ -1,0 +1,7 @@
+batch,minutes,mae_mean,mae_min,mae_max,coverage_mean,seeds
+first run,15,1.2493,1.2338,1.2683,0.8097,"[np.int64(0), np.int64(1), np.int64(2)]"
+first run,30,1.5741,1.5604,1.5922,0.7014,"[np.int64(0), np.int64(1), np.int64(2)]"
+first run,60,2.017,1.9916,2.0363,0.5763,"[np.int64(0), np.int64(1), np.int64(2)]"
+rerun,15,1.2622,1.2347,1.2897,0.7852,"[np.int64(3), np.int64(4)]"
+rerun,30,1.5953,1.569,1.6215,0.6672,"[np.int64(3), np.int64(4)]"
+rerun,60,2.0409,1.9859,2.0959,0.5314,"[np.int64(3), np.int64(4)]"
