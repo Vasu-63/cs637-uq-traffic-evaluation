@@ -11,8 +11,8 @@ Numbers in brackets, such as (41), refer to the team's numbered findings. Every 
 | Paper's claim | What we found | Evidence |
 |---|---|---|
 | Up to 14.8% lower short-term error, 8.7% long-term | The 14.8% is real but almost all GPDE (13.4 of the 14.8 points in the paper's own table). In our runs the physics loss adds −1.2 points over 3 seeds, i.e. it is slightly worse, and over all 5 seeds its 15-minute MAE is 1.9% higher than without it (1.046 → 1.066) (41, 42) | `reproduction/results/pemsd8_seed_check.csv`, `reproduction/results/rerun/` |
-| The physics loss improves accuracy | No gain on PEMSD8 over 5 paired seeds, 2 of them with the authors' own physics code: physics is better in only 1 of 5 seeds at each horizon. No gain on METR-LA over 2 seeds. The paper's gain, 0.017 MAE, is smaller than our seed spread of 0.016–0.028 (27, 28, 41) | `reproduction/results/rerun/`, `implementation/results/metrla_tod_summary.csv` |
-| Better-calibrated intervals | Nominal 95% intervals cover 45–65% of true speeds at 60 min, and 14–50% in congested traffic. Coverage is never measured in the paper (9, 30) | `extensions/results/coverage_conformal_metrics.csv` |
+| The physics loss improves accuracy | No gain on PEMSD8 over 5 paired seeds, 2 of them with the authors' own physics code: physics is better in only 1 of 5 seeds at each horizon. No gain on METR-LA over 2 seeds. The paper's gain, 0.017 MAE, is smaller than our seed-to-seed standard deviation of 0.026–0.028 in the same reading (27, 28, 41, 45) | `reproduction/results/rerun/`, `implementation/results/metrla_tod_summary.csv` |
+| Better-calibrated intervals | Nominal 95% intervals cover 45–65% of true speeds at 60 min on PEMSD4 (six models) and 50–61% on PEMSD8, and 14–50% in congested traffic. Coverage is never measured in the paper (9, 30) | `extensions/results/coverage_conformal_metrics.csv` |
 | More robust under adversarial attack | The physics models were attacked with a weaker PGD than their baselines. Under the same attack, their advantage equals their clean-accuracy gap: they are not more robust (44) | `analysis/table3_reattack_summary.csv` |
 | Results are means of five runs | Table 1's PEMSD4 rows and 16 of 18 Table 3 Quantile rows equal single logged runs to 3–4 decimals (16, 43) | `reproduction/results/pemsd4_table1_vs_authors_logs.csv`, `analysis/table3_vs_logs.csv` |
 
@@ -71,7 +71,7 @@ PEMSD4's shipped single checkpoints do show a 5–7% MAE gain for Quantile with 
 
 ### The intervals are not calibrated
 
-- **Coverage collapses with horizon (30).** The nominal 95% intervals cover 95% only at the first 5-minute step. At 60 minutes they cover 52–65% on PEMSD4 (Quantile trio) and 58–61% on PEMSD8 (GPDE models). The intervals get narrower as the horizon grows, when they should widen.
+- **Coverage collapses with horizon (30).** The nominal 95% intervals cover 95% only at the first 5-minute step. At 60 minutes they cover 52–65% on PEMSD4 (Quantile trio) and 50–61% on PEMSD8 (Quantile trio, seeds 0–2). The intervals get narrower as the horizon grows, when they should widen.
 - **Congestion is worst.** Below 40 mph, where a controller most needs a warning, coverage is 14–50%.
 - **Conformal calibration fixes it, at a price.** It restores 95% coverage on the test set, with intervals 3.2–4.6 times wider (30).
 
@@ -118,9 +118,16 @@ The physics models are slightly more accurate, but not more robust.
 | Area | Addition | Folder |
 |---|---|---|
 | Implementation | Our own physics-loss module with 11 tests, swapped into the authors' model and retrained | `implementation/` |
-| Reproduction | PEMSD4 checkpoint evaluation; PEMSD8 retraining; per-horizon comparison in both readings; 3-seed check of the physics loss | `reproduction/` |
+| Reproduction | PEMSD4 checkpoint evaluation; PEMSD8 retraining; per-horizon comparison in both readings; 5-seed check of the physics loss (2 seeds with the authors' own code); Table 3 traced to the authors' logs | `reproduction/` |
 | New ideas | Greenshields vs Underwood; a time-aligned physics loss (fix for 18); conformal calibration of the intervals (CQR, per-sensor CQR, ACI) | `implementation/`, `extensions/` |
 | New use cases | Dead and stuck sensors, with a graph-neighbour repair; CPU latency and model size; Table 3 re-attack with the same PGD for every model | `extensions/`, `analysis/` |
+
+## Limits of our evaluation
+
+- **Not reproduced:** the EDL rows, MAEMIS on PEMSD8 and METR-LA, the METR-LA rows of Table 1 (our METR-LA runs train 25 of the configured 50 epochs, so they test the physics term but are not compared with the paper), the λ sweep of Table 2, and adversarial training itself (Table 3 was checked by tracing logs and re-attacking the shipped checkpoints).
+- **PEMSD4 uses one checkpoint per model,** the ones the authors ship. Seed effects were measured on PEMSD8 only (3 to 5 seeds).
+- **The scrambled diffusion matrices (14) were not fixed and retrained,** so their effect on accuracy is unknown.
+- **Conformal calibration gives marginal coverage,** and CQR's guarantee is approximate because the validation period precedes the test period. Coverage in congestion stays below 95% after calibration.
 
 ## Through the course's lens
 

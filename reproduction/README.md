@@ -135,7 +135,7 @@ About 25 minutes on the first run. Choose Runtime → T4 GPU, then Run all.
 
 Expected sample counts: 11,871 train, 1,676 val and 3,376 test windows. That is 47 batches per epoch, the same as the authors' logs.
 
-### 2. PEMSD8 retraining and seed check (`notebooks/pemsd8_retraining_and_seed_check_ipynb.ipynb`)
+### 2. PEMSD8 retraining and seed check (`notebooks/pemsd8_retraining_and_seed_check.ipynb`)
 
 There are four runs of about 50 minutes each, split over two Colab accounts by setting `MY_RUNS` in section 0:
 
@@ -144,7 +144,7 @@ There are four runs of about 50 minutes each, split over two Colab accounts by s
 | A | `['pemsd8_gpde_quantile_seed0', 'pemsd8_quantile_seed0']` |
 | B | `['pemsd8_gpde_quantile_seed1', 'pemsd8_gpde_quantile_seed2']` |
 
-Run all on both accounts. The notebook is the same on both; only `MY_RUNS` differs. The first account's copy, with its outputs and tables A–D, is `pemsd8_retraining_and_seed_check_ipynb.ipynb`, and the second account's is `pemsd8_retraining_and_seed_check_ipynb_account2.ipynb`.
+Run all on both accounts. The notebook is the same on both; only `MY_RUNS` differs. The first account's copy, with its outputs and tables A–D, is `pemsd8_retraining_and_seed_check.ipynb`, and the second account's is `pemsd8_retraining_and_seed_check_account2.ipynb`.
 
 | Section | What it does |
 |---|---|
@@ -195,7 +195,7 @@ None of the authors' files are edited in their repo. Every change is made in a c
 The numbers refer to the team's findings list.
 
 - **Table 1 horizons are cumulative averages (15, 35, 39, 40).** Both datasets report "15 / 30 / 60 min" as averages up to that time. On PEMSD4, the reported numbers also include duplicated padding samples.
-- **Single runs, not means of five (16, 41).** The PEMSD4 rows equal one logged run to 3–4 decimals, although Section 6.1.2 says five runs were averaged. The seed is fixed in the code, and no standard deviations are reported. Our seed-to-seed spread over 5 seeds (0.016–0.028 MAE) is larger than the claimed physics gain (0.017).
+- **Single runs, not means of five (16, 41).** The PEMSD4 rows equal one logged run to 3–4 decimals, although Section 6.1.2 says five runs were averaged. The seed is fixed in the code, and no standard deviations are reported. Our seed-to-seed standard deviation over 5 seeds (0.026–0.028 MAE at 15 min, averaged reading) is larger than the claimed physics gain (0.017).
 - **The physics loss adds nothing on PEMSD8 (41, 42, 45).** Over 5 paired seeds, including 2 with the authors' own physics code, it is better in only 1 of 5 seeds at each horizon. The whole headline gain comes from GPDE, which is prior work.
 - **MAEMIS PEMSD4 60-min MAE typo (17):** 3.167 printed; the log gives 2.6805.
 - **The reported "MIS" is not Eq. 4 (13).** `mis_loss` adds \|y − median\| to the standard interval score. We report both versions (`mis_authors`, `mis_std`).
@@ -209,8 +209,8 @@ reproduction/
 ├── README.md
 ├── notebooks/
 │   ├── pemsd4_checkpoint_evaluation.ipynb
-│   ├── pemsd8_retraining_and_seed_check_ipynb.ipynb            first account (tables A-D)
-│   ├── pemsd8_retraining_and_seed_check_ipynb_account2.ipynb   second account
+│   ├── pemsd8_retraining_and_seed_check.ipynb            first account (tables A-D)
+│   ├── pemsd8_retraining_and_seed_check_account2.ipynb   second account
 │   ├── pemsd8_physics_rerun.ipynb                              rerun, first account (analysis)
 │   └── pemsd8_physics_rerun_account2.ipynb                     rerun, second account
 ├── scripts/
