@@ -35,7 +35,7 @@ The log and our numbers are averages over all 12 horizons, which is what Table 1
 | Quantile | 3.43 (single step) | 0.04 | 0.03 |
 | GPDE+Quantile | 1.45 (single step) | 0.11 | 0.17 |
 | GPDE+Quantile+Phy | 1.55 (single step) | 0.08 | 0.04 |
-| MAEMIS | 3.60 (single step) | 0.05 | 5.13 |
+| MAEMIS | 3.60 (single step) | 0.05 | 5.13 (Table 1's MAE is a typo: 3.167 printed, 2.6805 in the authors' log; finding 17) |
 | GPDE+MAEMIS | 1.07 (single step) | 0.20 | 0.15 |
 | GPDE+MAEMIS+Phy | 0.25 (average) | 0.05 | 0.09 |
 
